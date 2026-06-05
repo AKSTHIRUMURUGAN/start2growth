@@ -88,7 +88,7 @@ export default function Hero() {
           className="text-lg lg:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto mb-10 lg:mb-12 leading-relaxed"
         >
           Creative branding by JM Creations, performance marketing by Zigo Digital,
-          and technology development by Tech Buddy Space — unified to grow your
+          and technology development by Tech Buddy Galaxy — unified to grow your
           business from zero to market leader.
         </motion.p>
 

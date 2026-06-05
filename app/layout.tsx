@@ -9,7 +9,7 @@ import CustomCursor from "@/components/motion/CustomCursor";
 export const metadata: Metadata = {
   title: "Start2Growth | Build. Automate. Market. Grow.",
   description:
-    "One Ecosystem. Three Specialized Companies. Unlimited Growth. JM Creations, Zigo Digital & Tech Buddy Space — end-to-end business growth from ideation to scale.",
+    "One Ecosystem. Three Specialized Companies. Unlimited Growth. JM Creations, Zigo Digital & Tech Buddy Galaxy (a unit of Tech Buddy Space Pvt Ltd) — end-to-end business growth from ideation to scale.",
   keywords: [
     "business growth",
     "digital marketing",

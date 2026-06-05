@@ -90,7 +90,7 @@ export default function ContactSection() {
                   <option value="full-ecosystem">Full Ecosystem (All Services)</option>
                   <option value="jm-creations">JM Creations — Branding & Creative</option>
                   <option value="zigo-digital">Zigo Digital — Marketing & Leads</option>
-                  <option value="techbuddyspace">Tech Buddy Space — Technology & Development</option>
+                  <option value="techbuddyspace">Tech Buddy Galaxy — Technology & Development</option>
                 </select>
               </div>
               <div>

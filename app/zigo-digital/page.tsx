@@ -4,6 +4,7 @@ import CompanyPage from "@/components/sections/CompanyPage";
 const zigoDigitalData = {
   name: "Zigo Digital",
   tagline: "Performance Marketing • Lead Generation • Growth Acceleration",
+  logo: "/zigo/zigo.jpeg",
   description:
     "Performance-driven marketing agency focused on helping businesses generate leads, increase visibility, and scale through Meta Ads, Google Ads, SEO, funnel optimization, and data-driven strategies.",
   longDescription:
@@ -73,6 +74,7 @@ const zigoDigitalData = {
   founder: {
     name: "Prasanth",
     role: "Founder & CEO — Zigo Digital",
+    photo: "/zigo/prasanth.jpeg",
     bio: "I am Prasanth, Founder and CEO of Zigo Digital, a digital marketing agency focused on helping businesses grow through Meta Ads, Google Ads, content strategy, lead generation, and brand building. With 2.5 years of experience, I work with businesses to improve their online presence, attract quality leads, and convert audiences into customers through smart digital strategies.",
     strengths: [
       "Meta Ads Campaign Planning",
@@ -85,6 +87,7 @@ const zigoDigitalData = {
       "Client Handling & Growth Consultation",
     ],
   },
+  team: [],
 };
 
 export default function ZigoDigitalPage() {

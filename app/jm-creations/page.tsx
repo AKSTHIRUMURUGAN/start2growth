@@ -4,6 +4,7 @@ import CompanyPage from "@/components/sections/CompanyPage";
 const jmCreationsData = {
   name: "JM Creations",
   tagline: "Creative • Branding • Media • Business Growth",
+  logo: "/jm/jm.jpeg",
   description:
     "Full-service digital solutions agency dedicated to helping businesses grow, evolve, and establish a strong online presence through creative content, strategic marketing, and business development solutions.",
   longDescription:
@@ -71,8 +72,9 @@ const jmCreationsData = {
   ],
   founder: {
     name: "Jinavaradoss",
-    role: "Founder & CEO — JM Creation",
-    bio: "I am Jinavaradoss, Founder of JM Creation, with strong expertise in sales, lead management, client follow-up, and team coordination. My focus is to help businesses convert enquiries into customers through proper communication, organized lead handling, and result-oriented sales execution.",
+    role: "Founder & CEO — JM Creations",
+    photo: "/jm/jina.jpeg",
+    bio: "I am Jinavaradoss, Founder of JM Creations, with strong expertise in sales, lead management, client follow-up, and team coordination. My focus is to help businesses convert enquiries into customers through proper communication, organized lead handling, and result-oriented sales execution.",
     strengths: [
       "Sales Communication",
       "Lead Follow-up",
@@ -83,6 +85,10 @@ const jmCreationsData = {
       "Customer Need Analysis",
     ],
   },
+  team: [
+    { name: "Abinaya",  role: "Creative Designer",         photo: "/jm/abinaya.jpeg" },
+    { name: "Mohana",   role: "Social Media Manager",      photo: "/jm/mohana.jpeg"  },
+  ],
 };
 
 export default function JMCreationsPage() {

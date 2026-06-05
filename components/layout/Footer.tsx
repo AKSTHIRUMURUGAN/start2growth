@@ -1,6 +1,13 @@
 import Link from "next/link";
-import { Zap, Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
-import { BRAND, COMPANIES } from "@/lib/constants";
+import Image from "next/image";
+import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { BRAND } from "@/lib/constants";
+
+const COMPANY_LINKS = [
+  { href: "/jm-creations",   name: "JM Creations",    logo: "/jm/jm.jpeg"    },
+  { href: "/zigo-digital",   name: "Zigo Digital",    logo: "/zigo/zigo.jpeg" },
+  { href: "/techbuddyspace", name: "Tech Buddy Galaxy", logo: "/tbs/tbs.jpg"   },
+];
 
 export default function Footer() {
   return (
@@ -13,11 +20,8 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#d4a853] to-[#c8946e] flex items-center justify-center">
-                <Zap size={16} className="text-black" aria-hidden />
-              </div>
-              <span className="font-semibold text-lg text-[#fafafa] group-hover:text-[#d4a853] transition-colors">
-                Start2Growth
+              <span className="font-bold text-lg text-[#fafafa] group-hover:text-[#d4a853] transition-colors">
+                Start<span className="text-[#d4a853]">2</span>Growth
               </span>
             </Link>
             <p className="text-[#a1a1a1] text-sm leading-relaxed mb-6">
@@ -51,19 +55,30 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-[#fafafa] mb-4 uppercase tracking-widest">
               Our Companies
             </h3>
-            <ul className="flex flex-col gap-2" role="list">
-              {COMPANIES.map((c) => (
-                <li key={c.id}>
+            <ul className="flex flex-col gap-3" role="list">
+              {COMPANY_LINKS.map((c) => (
+                <li key={c.href}>
                   <Link
-                    href={`/${c.slug}`}
-                    className="flex items-center gap-1 text-sm text-[#a1a1a1] hover:text-[#d4a853] transition-colors group"
+                    href={c.href}
+                    className="flex items-center gap-3 group"
                   >
-                    {c.name}
-                    <ArrowUpRight
-                      size={12}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity"
-                      aria-hidden
-                    />
+                    <div className="w-8 h-8 rounded-lg overflow-hidden border border-white/10 bg-white/5 shrink-0 group-hover:border-[#d4a853]/30 transition-colors">
+                      <Image
+                        src={c.logo}
+                        alt={c.name}
+                        width={32}
+                        height={32}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="flex items-center gap-1 text-sm text-[#a1a1a1] group-hover:text-[#d4a853] transition-colors">
+                      {c.name}
+                      <ArrowUpRight
+                        size={12}
+                        className="opacity-0 group-hover:opacity-100 transition-opacity"
+                        aria-hidden
+                      />
+                    </div>
                   </Link>
                 </li>
               ))}
@@ -125,7 +140,7 @@ export default function Footer() {
             © 2026 Start2Growth. All Rights Reserved.
           </p>
           <p className="text-xs text-[#a1a1a1]">
-            Powered by JM Creations · Zigo Digital · Tech Buddy Space Pvt Ltd
+            Powered by JM Creations · Zigo Digital · Tech Buddy Galaxy
           </p>
         </div>
       </div>

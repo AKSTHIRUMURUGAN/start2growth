@@ -95,9 +95,9 @@ export const COMPANIES = [
   {
     id: "techbuddyspace",
     slug: "techbuddyspace",
-    name: "Tech Buddy Space",
-    shortName: "TBS",
-    tagline: "Gen-Z Innovation Studio — We Build Billion-Dollar Realities",
+    name: "Tech Buddy Galaxy",
+    shortName: "TBG",
+    tagline: "Gen-Z Innovation Studio — a unit of Tech Buddy Space Pvt Ltd",
     description:
       "A student-founded tech powerhouse turning ideas into scalable products. Web, mobile, AI/ML, cloud — end-to-end, pay as you go. 50+ clients served, 100+ projects delivered.",
     color: "#22d3ee",
@@ -125,10 +125,9 @@ export const COMPANIES = [
       "24/7 support available",
     ],
     team: [
-      { name: "Bharath T", role: "Founder & CTO", initials: "BT" },
-      { name: "Sneha R", role: "Full Stack Lead", initials: "SR" },
-      { name: "Arun P", role: "AI/ML Engineer", initials: "AP" },
-      { name: "Meera V", role: "DevOps Engineer", initials: "MV" },
+      { name: "Thirumurugan", role: "Founder & CEO", initials: "TK" },
+      { name: "Aman",         role: "Full Stack Developer", initials: "AM" },
+      { name: "Jayanesh",     role: "UI/UX & Frontend Lead", initials: "JN" },
     ],
   },
 ];
@@ -314,9 +313,9 @@ export const ECOSYSTEM_MAP = [
   { need: "Lead Generation", team: "Zigo Digital", color: "#6366f1" },
   { need: "Meta & Google Ads", team: "Zigo Digital", color: "#6366f1" },
   { need: "SEO & Positioning", team: "Zigo Digital", color: "#6366f1" },
-  { need: "Website & App Dev", team: "Tech Buddy Space", color: "#22d3ee" },
-  { need: "CRM & ERP", team: "Tech Buddy Space", color: "#22d3ee" },
-  { need: "AI & Automation", team: "Tech Buddy Space", color: "#22d3ee" },
-  { need: "Cloud Infrastructure", team: "Tech Buddy Space", color: "#22d3ee" },
+  { need: "Website & App Dev", team: "Tech Buddy Galaxy", color: "#22d3ee" },
+  { need: "CRM & ERP", team: "Tech Buddy Galaxy", color: "#22d3ee" },
+  { need: "AI & Automation", team: "Tech Buddy Galaxy", color: "#22d3ee" },
+  { need: "Cloud Infrastructure", team: "Tech Buddy Galaxy", color: "#22d3ee" },
   { need: "Scale & Growth", team: "Start2Growth", color: "#ffffff" },
 ];

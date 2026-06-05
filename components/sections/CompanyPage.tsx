@@ -3,6 +3,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import ScrollReveal from "@/components/motion/ScrollReveal";
@@ -13,17 +14,20 @@ const H2 = "clamp(2rem, 1.2rem + 2.5vw, 3.5rem)";
 interface CompanyPageProps {
   company: {
     name: string;
+    unit?: string;
     tagline: string;
     description: string;
     longDescription: string;
+    logo: string;
     services: { title: string; items: string[] }[];
     founder: {
       name: string;
       role: string;
       bio: string;
+      photo: string;
       strengths: string[];
     };
-    testimonials?: { quote: string; author: string }[];
+    team?: { name: string; role: string; photo: string }[];
   };
 }
 
@@ -58,29 +62,54 @@ export default function CompanyPage({ company }: CompanyPageProps) {
             Back to Ecosystem
           </Link>
 
-          <motion.span
+          {/* Logo + tagline row */}
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-xs uppercase tracking-[0.2em] text-[#d4a853] mb-4 block"
+            className="flex items-center gap-4 mb-6"
           >
-            {company.tagline}
-          </motion.span>
+            <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl overflow-hidden border border-white/10 bg-white/5 shrink-0">
+              <Image
+                src={company.logo}
+                alt={`${company.name} logo`}
+                width={80}
+                height={80}
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
+            <span className="text-xs uppercase tracking-[0.2em] text-[#d4a853]">
+              {company.tagline}
+            </span>
+          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-bold tracking-tight text-white mb-6 leading-[1.05]"
+            className="font-bold tracking-tight text-white mb-2 leading-[1.05]"
             style={{ fontSize: H1 }}
           >
             {company.name}
           </motion.h1>
 
+          {/* Unit line — e.g. "a unit of Tech Buddy Space Pvt Ltd" */}
+          {company.unit && (
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-sm text-[#a1a1a1] mb-6 tracking-wide"
+            >
+              {company.unit}
+            </motion.p>
+          )}
+
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg lg:text-xl text-[#a1a1a1] max-w-2xl leading-relaxed mb-8"
           >
             {company.description}
@@ -177,10 +206,15 @@ export default function CompanyPage({ company }: CompanyPageProps) {
           <ScrollReveal delay={0.1}>
             <div className="glass rounded-2xl p-8 lg:p-10 border border-white/[0.04]">
               <div className="flex flex-col sm:flex-row gap-6 items-start">
-                <div className="w-20 h-20 rounded-2xl bg-[#d4a853]/10 border border-[#d4a853]/20 flex items-center justify-center shrink-0">
-                  <span className="text-2xl font-bold text-[#d4a853]" aria-hidden>
-                    {company.founder.name.charAt(0)}
-                  </span>
+                {/* Founder photo */}
+                <div className="w-20 h-20 rounded-2xl overflow-hidden border border-white/10 bg-white/5 shrink-0">
+                  <Image
+                    src={company.founder.photo}
+                    alt={`${company.founder.name} — ${company.founder.role}`}
+                    width={80}
+                    height={80}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white">
@@ -208,6 +242,43 @@ export default function CompanyPage({ company }: CompanyPageProps) {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ── Team ───────────────────────────────────── */}
+      {company.team && company.team.length > 0 && (
+        <section className="section-pad bg-[#111111]">
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <ScrollReveal>
+              <h2
+                className="font-bold text-white mb-12 text-center tracking-tight"
+                style={{ fontSize: H2 }}
+              >
+                Our <span className="text-gold-gradient">Team</span>
+              </h2>
+            </ScrollReveal>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+              {company.team.map((member, i) => (
+                <ScrollReveal key={member.name} delay={i * 0.08}>
+                  <div className="glass rounded-2xl p-5 border border-white/[0.04] hover:border-[#d4a853]/15 transition-all duration-300 hover:-translate-y-1 text-center group">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden border border-white/10 mx-auto mb-4 bg-white/5">
+                      <Image
+                        src={member.photo}
+                        alt={member.name}
+                        width={64}
+                        height={64}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <p className="text-sm font-semibold text-white group-hover:text-[#d4a853] transition-colors">
+                      {member.name}
+                    </p>
+                    <p className="text-xs text-[#a1a1a1] mt-1">{member.role}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── CTA ────────────────────────────────────── */}
       <section className="section-pad text-center bg-[#111111]">

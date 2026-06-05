@@ -13,7 +13,7 @@ Start2Growth provides end-to-end business growth solutions from startup registra
 - Homepage: /
 - JM Creations (branding, social media, content, video): /jm-creations
 - Zigo Digital (Meta Ads, Google Ads, SEO, lead generation): /zigo-digital
-- Tech Buddy Space (web, mobile, AI/ML, cloud, DevOps): /techbuddyspace
+- Tech Buddy Galaxy (a unit of Tech Buddy Space Pvt Ltd): /techbuddyspace
 - Client Case Studies: /clients
 - Individual Client Stories: /clients/[slug]
 
@@ -25,7 +25,7 @@ Business registration, social media management, content creation, branding, digi
 ### Zigo Digital
 Meta Ads, Google Ads, lead generation, Google Business optimization, SEO, funnel building, conversion optimization, WhatsApp marketing, email marketing, analytics, marketing automation.
 
-### Tech Buddy Space Pvt Ltd
+### Tech Buddy Galaxy (a unit of Tech Buddy Space Pvt Ltd)
 Corporate websites, e-commerce stores, PWAs, Android/iOS apps, Flutter apps, AI chatbots, ML solutions, cloud migration (AWS/Azure/GCP), CI/CD, CRM, ERP, HRMS, cybersecurity audits.
 
 ## Contact

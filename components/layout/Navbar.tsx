@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 
@@ -11,9 +12,9 @@ const navLinks = [
   {
     label: "Companies",
     children: [
-      { href: "/jm-creations", label: "JM Creations", desc: "Creative & Branding" },
-      { href: "/zigo-digital", label: "Zigo Digital", desc: "Performance Marketing" },
-      { href: "/techbuddyspace", label: "Tech Buddy Space", desc: "Technology & Innovation" },
+      { href: "/jm-creations",  label: "JM Creations",    desc: "Creative & Branding",       logo: "/jm/jm.jpeg"    },
+      { href: "/zigo-digital",  label: "Zigo Digital",    desc: "Performance Marketing",      logo: "/zigo/zigo.jpeg" },
+      { href: "/techbuddyspace", label: "Tech Buddy Galaxy", desc: "a unit of Tech Buddy Space Pvt Ltd", logo: "/tbs/tbs.jpg"   },
     ],
   },
   { href: "/clients", label: "Client Success" },
@@ -99,13 +100,24 @@ export default function Navbar() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block px-4 py-3 rounded-lg hover:bg-white/[0.04] transition-colors duration-200"
+                          className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-white/[0.04] transition-colors duration-200"
                         >
-                          <div className="text-sm font-medium text-white">
-                            {child.label}
+                          <div className="w-8 h-8 rounded-lg overflow-hidden border border-white/10 shrink-0 bg-white/5">
+                            <Image
+                              src={child.logo}
+                              alt={child.label}
+                              width={32}
+                              height={32}
+                              className="w-full h-full object-cover"
+                            />
                           </div>
-                          <div className="text-xs text-[var(--text-secondary)] mt-0.5">
-                            {child.desc}
+                          <div>
+                            <div className="text-sm font-medium text-white">
+                              {child.label}
+                            </div>
+                            <div className="text-xs text-[#a1a1a1] mt-0.5">
+                              {child.desc}
+                            </div>
                           </div>
                         </Link>
                       ))}
@@ -166,12 +178,21 @@ export default function Navbar() {
                         key={child.href}
                         href={child.href}
                         onClick={() => setMobileOpen(false)}
-                        className="block px-6 py-3 text-base text-[var(--text-secondary)] hover:text-white transition-colors rounded-xl hover:bg-white/[0.03]"
+                        className="flex items-center gap-3 px-6 py-3 rounded-xl hover:bg-white/[0.03] transition-colors"
                       >
-                        <span className="text-white">{child.label}</span>
-                        <span className="block text-xs text-[var(--text-secondary)] mt-0.5">
-                          {child.desc}
-                        </span>
+                        <div className="w-9 h-9 rounded-xl overflow-hidden border border-white/10 shrink-0 bg-white/5">
+                          <Image
+                            src={child.logo}
+                            alt={child.label}
+                            width={36}
+                            height={36}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div>
+                          <span className="block text-base text-white">{child.label}</span>
+                          <span className="block text-xs text-[#a1a1a1] mt-0.5">{child.desc}</span>
+                        </div>
                       </Link>
                     ))}
                   </div>
