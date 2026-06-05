@@ -1,0 +1,40 @@
+# Start2Growth
+
+> One ecosystem. Three specialized companies. Unlimited growth.
+
+Start2Growth is a collaborative business ecosystem based in Chennai, India, combining three specialized companies: JM Creations (branding & media), Zigo Digital (performance marketing), and Tech Buddy Space Pvt Ltd (technology & automation).
+
+## Business Summary
+
+Start2Growth provides end-to-end business growth solutions from startup registration and branding to website development, AI automation, cloud infrastructure, digital marketing, and scaling strategies — all under one roof.
+
+## Structure
+
+- Homepage: /
+- JM Creations (branding, social media, content, video): /jm-creations
+- Zigo Digital (Meta Ads, Google Ads, SEO, lead generation): /zigo-digital
+- Tech Buddy Space (web, mobile, AI/ML, cloud, DevOps): /techbuddyspace
+- Client Case Studies: /clients
+- Individual Client Stories: /clients/[slug]
+
+## Services
+
+### JM Creations
+Business registration, social media management, content creation, branding, digital marketing, Facebook/Instagram/Google ads, lead generation, video production, drone shoots, business strategy.
+
+### Zigo Digital
+Meta Ads, Google Ads, lead generation, Google Business optimization, SEO, funnel building, conversion optimization, WhatsApp marketing, email marketing, analytics, marketing automation.
+
+### Tech Buddy Space Pvt Ltd
+Corporate websites, e-commerce stores, PWAs, Android/iOS apps, Flutter apps, AI chatbots, ML solutions, cloud migration (AWS/Azure/GCP), CI/CD, CRM, ERP, HRMS, cybersecurity audits.
+
+## Contact
+
+- Phone: +91 90429 86355
+- Email: hello@start2growth.in
+- Address: No. 1/2, 1st Floor, Pillaiyar Koil Street, Old Pallavaram, Chennai - 600 117
+- Website: https://www.start2growth.in
+
+## Target Audience
+
+Startups, SMEs, local businesses, student founders, service providers, and growing companies looking to expand their digital identity and customer reach across India.
