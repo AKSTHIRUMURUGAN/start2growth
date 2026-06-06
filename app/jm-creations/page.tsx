@@ -72,7 +72,7 @@ const jmCreationsData = {
   ],
   founder: {
     name: "Jinavaradoss",
-    role: "Founder & CEO — JM Creations",
+    role: "Founder — JM Creations",
     photo: "/jm/jina.jpeg",
     bio: "I am Jinavaradoss, Founder of JM Creations, with strong expertise in sales, lead management, client follow-up, and team coordination. My focus is to help businesses convert enquiries into customers through proper communication, organized lead handling, and result-oriented sales execution.",
     strengths: [
@@ -86,8 +86,8 @@ const jmCreationsData = {
     ],
   },
   team: [
-    { name: "Abinaya",  role: "Creative Designer",         photo: "/jm/abinaya.jpeg" },
-    { name: "Mohana",   role: "Social Media Manager",      photo: "/jm/mohana.jpeg"  },
+    { name: "Mohana Priya", role: "Managing Director",  photo: "/jm/mohana.jpeg"  },
+    { name: "Abinaya",      role: "CEO",                photo: "/jm/abinaya.jpeg" },
   ],
 };
 

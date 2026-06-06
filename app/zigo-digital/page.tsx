@@ -72,10 +72,10 @@ const zigoDigitalData = {
     },
   ],
   founder: {
-    name: "Prasanth",
-    role: "Founder & CEO — Zigo Digital",
+    name: "Prasanth M",
+    role: "Founder — Zigo Digital",
     photo: "/zigo/prasanth.jpeg",
-    bio: "I am Prasanth, Founder and CEO of Zigo Digital, a digital marketing agency focused on helping businesses grow through Meta Ads, Google Ads, content strategy, lead generation, and brand building. With 2.5 years of experience, I work with businesses to improve their online presence, attract quality leads, and convert audiences into customers through smart digital strategies.",
+    bio: "I am Prasanth M, Founder of Zigo Digital, a digital marketing agency focused on helping businesses grow through Meta Ads, Google Ads, content strategy, lead generation, and brand building. With 2.5 years of experience, I work with businesses to improve their online presence, attract quality leads, and convert audiences into customers through smart digital strategies.",
     strengths: [
       "Meta Ads Campaign Planning",
       "Google Ads Strategy",

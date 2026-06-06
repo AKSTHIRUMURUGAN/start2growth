@@ -89,8 +89,8 @@ const techBuddySpaceData = {
     ],
   },
   team: [
-    { name: "Aman",     role: "Full Stack Developer",  photo: "/tbs/aman.jpeg"     },
-    { name: "Jayanesh", role: "UI/UX & Frontend Lead", photo: "/tbs/jayanesh.jpeg" },
+    { name: "Amaanudeen",     role: "Co-Founder & Director", photo: "/tbs/aman.jpeg"     },
+    { name: "Jayanesh", role: "Co-Founder & Director",   photo: "/tbs/jayanesh.jpeg" },
   ],
 };
 

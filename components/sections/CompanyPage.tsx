@@ -199,7 +199,7 @@ export default function CompanyPage({ company }: CompanyPageProps) {
               className="font-bold text-white mb-10 text-center tracking-tight"
               style={{ fontSize: H2 }}
             >
-              Meet the <span className="text-gold-gradient">Founder</span>
+              Meet the <span className="text-gold-gradient">Leadership</span>
             </h2>
           </ScrollReveal>
 
@@ -255,7 +255,14 @@ export default function CompanyPage({ company }: CompanyPageProps) {
                 Our <span className="text-gold-gradient">Team</span>
               </h2>
             </ScrollReveal>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div
+              className="grid gap-6"
+              style={{
+                gridTemplateColumns: `repeat(${Math.min(company.team.length, 4)}, minmax(0, 1fr))`,
+                maxWidth: company.team.length <= 2 ? "480px" : company.team.length === 3 ? "640px" : "100%",
+                margin: "0 auto",
+              }}
+            >
               {company.team.map((member, i) => (
                 <ScrollReveal key={member.name} delay={i * 0.08}>
                   <div className="glass rounded-2xl p-5 border border-white/[0.04] hover:border-[#d4a853]/15 transition-all duration-300 hover:-translate-y-1 text-center group">
