@@ -4,29 +4,46 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/motion/CustomCursor";
-
+import JsonLd from "@/components/seo/JsonLd";
+import PageTransition from "@/components/motion/PageTransition";
 
 export const metadata: Metadata = {
-  title: "Start2Growth | Build. Automate. Market. Grow.",
+  metadataBase: new URL("https://www.start2growth.in"),
+  title: {
+    default: "Start2Growth | Build. Automate. Market. Grow.",
+    template: "%s | Start2Growth",
+  },
   description:
-    "One Ecosystem. Three Specialized Companies. Unlimited Growth. JM Creations, Zigo Digital & Tech Buddy Galaxy (a unit of Tech Buddy Space Pvt Ltd) — end-to-end business growth from ideation to scale.",
+    "One Ecosystem. Three Specialized Companies. Unlimited Growth. JM Creations, Zigo Digital & Tech Buddy Galaxy — end-to-end business growth from ideation to scale. Based in Chennai, India.",
   keywords: [
-    "business growth",
-    "digital marketing",
-    "web development",
+    "Start2Growth",
+    "business growth Chennai",
+    "digital marketing Chennai",
+    "web development Chennai",
+    "JM Creations",
+    "Zigo Digital",
+    "Tech Buddy Galaxy",
+    "Tech Buddy Space",
     "lead generation",
-    "branding",
+    "branding agency Chennai",
+    "startup ecosystem India",
     "automation",
-    "Chennai",
-    "startup ecosystem",
+    "Meta Ads",
+    "Google Ads",
+    "social media marketing",
   ],
+  authors: [{ name: "Start2Growth", url: "https://www.start2growth.in" }],
+  creator: "Start2Growth",
+  alternates: {
+    canonical: "https://www.start2growth.in",
+  },
   openGraph: {
     title: "Start2Growth | Build. Automate. Market. Grow.",
     description:
-      "Three companies, one growth engine. Creative branding, performance marketing, and technology development under one roof.",
-    url: "https://start2growth.in",
+      "Three specialized companies. One growth engine. Creative branding, performance marketing, and technology development under one roof.",
+    url: "https://www.start2growth.in",
     siteName: "Start2Growth",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Start2Growth — One Ecosystem. Three Companies." }],
     locale: "en_IN",
     type: "website",
   },
@@ -40,7 +57,12 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -50,7 +72,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark" data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html
+      lang="en"
+      className="dark"
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
+      <head>
+        <JsonLd />
+      </head>
       <body
         className="font-sans bg-[#0a0a0a] text-[#fafafa] antialiased overflow-x-hidden"
         suppressHydrationWarning
@@ -60,7 +90,9 @@ export default function RootLayout({
         </a>
         <CustomCursor />
         <Navbar />
-        <main id="main-content">{children}</main>
+        <main id="main-content">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
       </body>
     </html>

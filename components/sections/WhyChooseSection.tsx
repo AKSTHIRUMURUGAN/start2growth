@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { Zap, Target, BarChart3, Shield, Headphones, Star } from "lucide-react";
 import { WHY_CHOOSE } from "@/lib/constants";
 import { staggerContainer, staggerItem } from "@/lib/animations";
+import MouseGlow from "@/components/motion/MouseGlow";
 
 const ICON_MAP: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement> & { size?: number }>> = {
   Zap, Target, BarChart3, Shield, Headphones, Star,
@@ -15,11 +16,10 @@ export default function WhyChooseSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section
-      aria-labelledby="why-heading"
-      className="section-pad bg-[#111111]"
-    >
+    <section aria-labelledby="why-heading" className="section-pad bg-[#111111]">
       <div ref={ref} className="max-w-7xl mx-auto px-6 lg:px-10">
+
+        {/* Header */}
         <div className="text-center mb-16">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -50,6 +50,7 @@ export default function WhyChooseSection() {
           </motion.p>
         </div>
 
+        {/* Cards */}
         <motion.ul
           variants={staggerContainer}
           initial="hidden"
@@ -64,8 +65,9 @@ export default function WhyChooseSection() {
               <motion.li
                 key={item.title}
                 variants={staggerItem}
-                className="glass rounded-3xl p-8 border border-white/5 hover:border-[#d4a853]/20 transition-all duration-300 group hover:-translate-y-1 flex gap-5 h-full"
+                className="relative glass rounded-2xl p-7 border border-white/5 hover:border-[#d4a853]/20 transition-all duration-300 group hover:-translate-y-1 flex gap-5 h-full overflow-hidden"
               >
+                <MouseGlow size={200} opacity={0.07} />
                 <div className="w-10 h-10 rounded-xl bg-[#d4a853]/10 border border-[#d4a853]/20 flex items-center justify-center shrink-0 group-hover:bg-[#d4a853]/20 transition-colors mt-0.5">
                   <Icon size={18} className="text-[#d4a853]" aria-hidden />
                 </div>

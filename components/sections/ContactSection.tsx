@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { Send, Phone, Mail, MapPin, CheckCircle2 } from "lucide-react";
 import ScrollReveal from "@/components/motion/ScrollReveal";
+import MagneticButton from "@/components/motion/MagneticButton";
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -181,26 +182,28 @@ export default function ContactSection() {
               </div>
 
               {/* Submit */}
-              <button
-                type="submit"
-                disabled={submitted}
-                className="w-full py-3.5 rounded-full font-semibold text-base flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-60"
-                style={{ background: "#d4a853", color: "#000" }}
-                onMouseEnter={(e) => !submitted && (e.currentTarget.style.background = "#c8946e")}
-                onMouseLeave={(e) => !submitted && (e.currentTarget.style.background = "#d4a853")}
-              >
-                {submitted ? (
-                  <>
-                    <CheckCircle2 className="w-5 h-5" aria-hidden />
-                    Message Sent Successfully!
-                  </>
-                ) : (
-                  <>
-                    Send Message
-                    <Send className="w-4 h-4" aria-hidden />
-                  </>
-                )}
-              </button>
+              <MagneticButton className="w-full">
+                <button
+                  type="submit"
+                  disabled={submitted}
+                  className="w-full py-3.5 rounded-full font-semibold text-base flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-60"
+                  style={{ background: "#d4a853", color: "#000" }}
+                  onMouseEnter={(e) => !submitted && (e.currentTarget.style.background = "#c8946e")}
+                  onMouseLeave={(e) => !submitted && (e.currentTarget.style.background = "#d4a853")}
+                >
+                  {submitted ? (
+                    <>
+                      <CheckCircle2 className="w-5 h-5" aria-hidden />
+                      Message Sent Successfully!
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="w-4 h-4" aria-hidden />
+                    </>
+                  )}
+                </button>
+              </MagneticButton>
             </form>
           </ScrollReveal>
 

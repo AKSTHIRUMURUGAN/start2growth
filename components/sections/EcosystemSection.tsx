@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import ScrollReveal from "@/components/motion/ScrollReveal";
+import MouseGlow from "@/components/motion/MouseGlow";
 
 const companies = [
   {
@@ -90,8 +91,9 @@ export default function EcosystemSection() {
             <ScrollReveal key={company.id} delay={index * 0.1} className="h-full flex flex-col">
               <Link
                 href={company.href}
-                className="group flex flex-col justify-between flex-1 glass rounded-2xl p-6 lg:p-8 border border-white/[0.04] hover:border-[#d4a853]/20 transition-all duration-500 hover:shadow-2xl hover:shadow-[#d4a853]/5 hover:-translate-y-1"
+                className="group relative flex flex-col justify-between flex-1 glass rounded-2xl p-6 lg:p-8 border border-white/[0.04] hover:border-[#d4a853]/20 transition-all duration-500 hover:shadow-2xl hover:shadow-[#d4a853]/5 hover:-translate-y-1 overflow-hidden"
               >
+                <MouseGlow size={280} opacity={0.08} />
                 <div>
                   {/* Logo */}
                   <div className="w-16 h-16 rounded-2xl overflow-hidden border border-white/10 mb-6 bg-white/5 group-hover:border-[#d4a853]/30 transition-colors duration-300 shrink-0">

@@ -7,6 +7,8 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import ScrollReveal from "@/components/motion/ScrollReveal";
+import MagneticButton from "@/components/motion/MagneticButton";
+import MouseGlow from "@/components/motion/MouseGlow";
 
 const H1 = "clamp(2.8rem, 2rem + 3.5vw, 5.5rem)";
 const H2 = "clamp(2rem, 1.2rem + 2.5vw, 3.5rem)";
@@ -120,13 +122,16 @@ export default function CompanyPage({ company }: CompanyPageProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <Link
-              href="/#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#d4a853] text-black font-semibold hover:bg-[#c8946e] transition-all duration-300 hover:shadow-xl hover:shadow-[#d4a853]/25"
-            >
-              Work With {company.name.split(" ")[0]}
-              <ArrowRight className="w-4 h-4" aria-hidden />
-            </Link>
+            <MagneticButton>
+              <Link
+                href="/#contact"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-black transition-all duration-300 hover:opacity-90 hover:shadow-xl"
+                style={{ background: "#d4a853" }}
+              >
+                Work With {company.name.split(" ")[0]}
+                <ArrowRight className="w-4 h-4" aria-hidden />
+              </Link>
+            </MagneticButton>
           </motion.div>
         </motion.div>
 
@@ -166,7 +171,8 @@ export default function CompanyPage({ company }: CompanyPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {company.services.map((service, i) => (
               <ScrollReveal key={service.title} delay={i * 0.08}>
-                <div className="glass rounded-2xl p-6 lg:p-8 border border-white/[0.04] hover:border-[#d4a853]/15 transition-all duration-500 h-full hover:-translate-y-1 group">
+                <div className="glass rounded-2xl p-6 lg:p-8 border border-white/[0.04] hover:border-[#d4a853]/15 transition-all duration-500 h-full hover:-translate-y-1 group relative overflow-hidden">
+                  <MouseGlow size={200} opacity={0.07} />
                   <h3 className="text-lg font-semibold text-white mb-4 group-hover:text-[#d4a853] transition-colors duration-300">
                     {service.title}
                   </h3>
