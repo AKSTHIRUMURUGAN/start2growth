@@ -18,6 +18,7 @@ const navLinks = [
     ],
   },
   { href: "/clients", label: "Client Success" },
+  { href: "/pamphlet", label: "Catalogue" },
   { href: "#contact", label: "Contact" },
 ];
 
