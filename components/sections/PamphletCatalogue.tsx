@@ -388,9 +388,9 @@ function ServiceCategoryPage({
   tab,
 }: {
   categoryId: string;
-  tab: "tech" | "marketing";
+  tab: "tech" | "marketing" | "jm";
 }) {
-  const allCats = tab === "tech" ? techServices : marketingServices;
+  const allCats = tab === "tech" ? techServices : tab === "marketing" ? marketingServices : jmServices;
   const cat = allCats.find((c) => c.id === categoryId)!;
   const Icon = iconMap[categoryId] || Globe;
   const iconColor = iconColors[categoryId] || "#d4a853";
@@ -691,6 +691,140 @@ function ContactPage() {
       <div className="absolute top-6 right-6 w-10 h-10 border-r border-t border-[#d4a853]/15 rounded-tr-md" />
       <div className="absolute bottom-6 left-6 w-10 h-10 border-l border-b border-[#d4a853]/15 rounded-bl-md" />
       <div className="absolute bottom-6 right-6 w-10 h-10 border-r border-b border-[#d4a853]/15 rounded-br-md" />
+    </div>
+  );
+}
+
+// ─── JM Creations Intro Page ─────────────────────────────────
+function JmIntroPage() {
+  return (
+    <div className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden p-8 md:p-16">
+      <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #0a0a0a 0%, #0c0a06 50%, #0a0a0a 100%)" }} />
+      <div
+        className="absolute inset-0 opacity-[0.025]"
+        style={{
+          backgroundImage: "radial-gradient(#f59e0b 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none" style={{ background: "rgba(245,158,11,0.06)" }} />
+
+      <div className="relative z-10 text-center max-w-lg">
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, ease: "backOut" }}
+          className="w-20 h-20 mx-auto mb-8 rounded-2xl flex items-center justify-center border border-white/8"
+          style={{ background: "rgba(245,158,11,0.08)" }}
+        >
+          <Star className="w-9 h-9 text-[#f59e0b]" />
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.1 }}
+          className="text-xs uppercase tracking-[0.3em] mb-3 font-semibold text-[#f59e0b]"
+        >
+          Section Three
+        </motion.p>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="text-4xl md:text-5xl font-black text-white tracking-tight mb-4"
+        >
+          JM Creations
+          <br />
+          <span className="text-[#a1a1a1] font-light text-3xl md:text-4xl">Portfolio</span>
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          className="text-[#6b6b6b] text-sm leading-relaxed"
+        >
+          One Company. Complete Business Solutions. From government registrations and legal compliance to branding, events, consulting, and digital transformation.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="mt-8 flex flex-wrap items-center justify-center gap-2 text-[11px]"
+        >
+          {["Business Registration", "Digital Marketing", "Branding & Design", "Video & Photography", "Event Management", "Consulting", "Innovation"].map((tag) => (
+            <span key={tag} className="px-3 py-1 rounded-full border border-[#f59e0b]/20 bg-[#f59e0b]/5 text-[#f59e0b]">{tag}</span>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
+// ─── JM Monthly Packages Page ─────────────────────────────────
+function JmPackagesPage() {
+  const pkgColors = ["#60a5fa", "#f59e0b", "#a855f7"];
+  return (
+    <div className="relative w-full h-full overflow-y-auto overflow-x-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#f59e0b]/6 via-[#0a0a0a] to-purple-500/5" />
+      <div className="absolute inset-0 bg-[#0a0a0a]/82" />
+
+      <div className="relative z-10 p-6 md:p-10 min-h-full flex flex-col">
+        <div className="mb-6">
+          <p className="text-[10px] text-[#f59e0b] uppercase tracking-[0.3em] mb-2">JM Creations</p>
+          <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">Monthly Packages</h2>
+          <p className="text-xs text-[#6b6b6b] mt-1">All-inclusive monthly growth packages</p>
+        </div>
+
+        <div className="h-px bg-gradient-to-r from-transparent via-white/8 to-transparent mb-6" />
+
+        <div className="flex-1 grid grid-cols-1 gap-4">
+          {jmMonthlyPackages.map((pkg, i) => (
+            <motion.div
+              key={pkg.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.09 }}
+              className="relative rounded-2xl border p-4 flex flex-col gap-2 overflow-hidden"
+              style={{
+                borderColor: pkg.highlight ? `${pkgColors[i]}40` : "rgba(255,255,255,0.06)",
+                background: `${pkgColors[i]}08`,
+              }}
+            >
+              {pkg.highlight && (
+                <div className="absolute top-3 right-3 px-2 py-0.5 rounded-full text-[10px] font-bold text-black" style={{ background: pkgColors[i] }}>
+                  Most Popular
+                </div>
+              )}
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-xs uppercase tracking-wider font-semibold mb-0.5" style={{ color: pkgColors[i] }}>{pkg.name}</div>
+                  <div className="text-2xl font-black text-white">
+                    {pkg.price}<span className="text-xs font-normal text-[#6b6b6b]">/{pkg.period}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-1">
+                {pkg.features.map((f) => (
+                  <div key={f} className="flex items-center gap-1.5 text-[11px] text-[#a1a1a1]">
+                    <div className="w-1 h-1 rounded-full shrink-0" style={{ background: pkgColors[i] }} />
+                    {f}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-4 flex items-center gap-2 text-[10px] text-[#4b4b4b] uppercase tracking-widest">
+          <div className="flex-1 h-px bg-white/5" />
+          <span>JM Creations</span>
+          <div className="flex-1 h-px bg-white/5" />
+        </div>
+      </div>
     </div>
   );
 }
