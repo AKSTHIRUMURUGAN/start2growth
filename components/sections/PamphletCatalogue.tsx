@@ -28,11 +28,22 @@ import {
   Phone,
   Mail,
   MapPin,
+  FileCheck,
+  BarChart3,
+  Brush,
+  Video,
+  Camera,
+  Monitor,
+  CalendarDays,
+  Printer,
+  TrendingUp,
+  Lightbulb,
 } from "lucide-react";
-import { techServices, marketingServices, performancePlans, campaignInclusions } from "@/lib/data";
+import { techServices, marketingServices, performancePlans, campaignInclusions, jmServices, jmMonthlyPackages } from "@/lib/data";
 
 // ─── Icon Map ────────────────────────────────────────────────
 const iconMap: Record<string, React.ElementType> = {
+  // Tech Buddy Galaxy
   "web-development": Globe,
   "mobile-apps": Smartphone,
   "ai-automation": Brain,
@@ -42,16 +53,29 @@ const iconMap: Record<string, React.ElementType> = {
   "uiux-design": Palette,
   "cyber-security": Shield,
   "support-maintenance": Wrench,
+  // Zigo Digital
   "meta-ads": Megaphone,
   "google-ads": Search,
   "linkedin-ads": Link2,
   "ott-audio": Tv2,
   influencer: Users,
   "offline-ads": Radio,
+  // JM Creations
+  "jm-business-registration": FileCheck,
+  "jm-digital-marketing": BarChart3,
+  "jm-branding-design": Brush,
+  "jm-video-production": Video,
+  "jm-photography": Camera,
+  "jm-website-tech": Monitor,
+  "jm-event-management": CalendarDays,
+  "jm-printing": Printer,
+  "jm-consulting": TrendingUp,
+  "jm-innovation": Lightbulb,
 };
 
 // ─── Category Colors ─────────────────────────────────────────
 const categoryColors: Record<string, string> = {
+  // Tech Buddy Galaxy
   "web-development":    "from-blue-500/20 to-blue-600/5",
   "mobile-apps":        "from-purple-500/20 to-purple-600/5",
   "ai-automation":      "from-emerald-500/20 to-emerald-600/5",
@@ -61,15 +85,28 @@ const categoryColors: Record<string, string> = {
   "uiux-design":        "from-rose-500/20 to-rose-600/5",
   "cyber-security":     "from-red-500/20 to-red-600/5",
   "support-maintenance":"from-amber-500/20 to-amber-600/5",
+  // Zigo Digital
   "meta-ads":           "from-blue-600/20 to-blue-700/5",
   "google-ads":         "from-yellow-500/20 to-yellow-600/5",
   "linkedin-ads":       "from-blue-400/20 to-blue-500/5",
   "ott-audio":          "from-violet-500/20 to-violet-600/5",
   influencer:           "from-fuchsia-500/20 to-fuchsia-600/5",
   "offline-ads":        "from-teal-500/20 to-teal-600/5",
+  // JM Creations
+  "jm-business-registration": "from-amber-600/20 to-amber-700/5",
+  "jm-digital-marketing":     "from-cyan-500/20 to-cyan-600/5",
+  "jm-branding-design":       "from-pink-500/20 to-pink-600/5",
+  "jm-video-production":      "from-red-500/20 to-red-600/5",
+  "jm-photography":           "from-orange-400/20 to-orange-500/5",
+  "jm-website-tech":          "from-indigo-500/20 to-indigo-600/5",
+  "jm-event-management":      "from-emerald-600/20 to-emerald-700/5",
+  "jm-printing":              "from-slate-400/20 to-slate-500/5",
+  "jm-consulting":            "from-yellow-600/20 to-yellow-700/5",
+  "jm-innovation":            "from-purple-500/20 to-purple-600/5",
 };
 
 const iconColors: Record<string, string> = {
+  // Tech Buddy Galaxy
   "web-development":    "#60a5fa",
   "mobile-apps":        "#c084fc",
   "ai-automation":      "#34d399",
@@ -79,22 +116,36 @@ const iconColors: Record<string, string> = {
   "uiux-design":        "#fb7185",
   "cyber-security":     "#f87171",
   "support-maintenance":"#fbbf24",
+  // Zigo Digital
   "meta-ads":           "#3b82f6",
   "google-ads":         "#facc15",
   "linkedin-ads":       "#60a5fa",
   "ott-audio":          "#a78bfa",
   influencer:           "#e879f9",
   "offline-ads":        "#2dd4bf",
+  // JM Creations
+  "jm-business-registration": "#f59e0b",
+  "jm-digital-marketing":     "#22d3ee",
+  "jm-branding-design":       "#f472b6",
+  "jm-video-production":      "#f87171",
+  "jm-photography":           "#fb923c",
+  "jm-website-tech":          "#818cf8",
+  "jm-event-management":      "#10b981",
+  "jm-printing":              "#94a3b8",
+  "jm-consulting":            "#eab308",
+  "jm-innovation":            "#a855f7",
 };
 
 // ─── All Pages (slides) ───────────────────────────────────────
 type Page =
   | { type: "cover" }
   | { type: "tech-intro" }
-  | { type: "service-category"; categoryId: string; tab: "tech" | "marketing" }
+  | { type: "service-category"; categoryId: string; tab: "tech" | "marketing" | "jm" }
   | { type: "marketing-intro" }
+  | { type: "jm-intro" }
   | { type: "plans" }
   | { type: "inclusions" }
+  | { type: "jm-packages" }
   | { type: "contact" };
 
 const buildPages = (): Page[] => {
@@ -106,7 +157,12 @@ const buildPages = (): Page[] => {
   marketingServices.forEach((cat) =>
     pages.push({ type: "service-category", categoryId: cat.id, tab: "marketing" })
   );
-  pages.push({ type: "plans" }, { type: "inclusions" }, { type: "contact" });
+  pages.push({ type: "plans" }, { type: "inclusions" });
+  pages.push({ type: "jm-intro" });
+  jmServices.forEach((cat) =>
+    pages.push({ type: "service-category", categoryId: cat.id, tab: "jm" })
+  );
+  pages.push({ type: "jm-packages" }, { type: "contact" });
   return pages;
 };
 
@@ -639,27 +695,31 @@ function ContactPage() {
   );
 }
 
-// ─── Page Renderer ────────────────────────────────────────────
+// ─── Page Renderer ──────────────────────────────────────────
 function PageContent({ page }: { page: Page }) {
   if (page.type === "cover") return <CoverPage />;
   if (page.type === "tech-intro") return <IntroPage type="tech" />;
   if (page.type === "marketing-intro") return <IntroPage type="marketing" />;
+  if (page.type === "jm-intro") return <JmIntroPage />;
   if (page.type === "service-category")
     return <ServiceCategoryPage categoryId={page.categoryId} tab={page.tab} />;
   if (page.type === "plans") return <PlansPage />;
   if (page.type === "inclusions") return <InclusionsPage />;
+  if (page.type === "jm-packages") return <JmPackagesPage />;
   if (page.type === "contact") return <ContactPage />;
   return null;
 }
 
-// ─── Table of Contents (Chapter Nav) ─────────────────────────
+// ─── Table of Contents (Chapter Nav) ───────────────────────────────
+// page layout: cover(0) + tech-intro(1) + 9 tech(2-10) + mkt-intro(11) + 6 mkt(12-17) + plans(18) + inclusions(19) + jm-intro(20) + 10 jm(21-30) + jm-packages(31) + contact(32)
 const chapters = [
   { label: "Cover", pageIndex: 0 },
   { label: "Tech Services", pageIndex: 1 },
   { label: "Marketing Services", pageIndex: 11 },
-  { label: "Performance Plans", pageIndex: 18 },
-  { label: "Campaign Inclusions", pageIndex: 19 },
-  { label: "Contact", pageIndex: 20 },
+  { label: "Perf. Plans", pageIndex: 18 },
+  { label: "JM Creations", pageIndex: 20 },
+  { label: "JM Packages", pageIndex: 31 },
+  { label: "Contact", pageIndex: 32 },
 ];
 
 // ─── Main Catalogue ───────────────────────────────────────────
@@ -1054,6 +1114,106 @@ export default function PamphletCatalogue() {
                   </div>
                   <div className="space-y-1.5">
                     {plan.features.map((f) => (
+                      <div key={f} className="flex items-start gap-2 text-[11px] text-[#a1a1a1]">
+                        <div className="w-1.5 h-1.5 rounded-full mt-0.5 shrink-0" style={{ background: c }} />
+                        {f}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+
+        {/* JM Creations Services Grid */}
+        <Reveal>
+          <div className="mt-4 mb-4 flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-[#f59e0b]/10 border border-[#f59e0b]/20 flex items-center justify-center">
+              <Star className="w-4 h-4 text-[#f59e0b]" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-white">JM Creations</h3>
+              <p className="text-xs text-[#6b6b6b]">One Company. Complete Business Solutions.</p>
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+          {jmServices.map((cat, idx) => {
+            const Icon = iconMap[cat.id] || Star;
+            const color = iconColors[cat.id] || "#f59e0b";
+            return (
+              <Reveal key={cat.id} delay={idx * 0.04}>
+                <div className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-300 overflow-hidden">
+                  <div className="p-5 border-b border-white/[0.04]">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="w-9 h-9 rounded-xl flex items-center justify-center border border-white/8"
+                        style={{ background: `${color}12` }}
+                      >
+                        <Icon className="w-4 h-4" style={{ color }} />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-white">{cat.title}</h4>
+                        <p className="text-[10px] text-[#6b6b6b]">{cat.subtitle}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-3 space-y-1">
+                    {cat.services.map((s) => (
+                      <div
+                        key={s.name}
+                        className="flex items-center justify-between gap-2 px-2 py-1.5 rounded-lg hover:bg-white/[0.03] transition-colors"
+                      >
+                        <span className="text-xs text-[#a1a1a1]">{s.name}</span>
+                        <span className="text-xs font-semibold tabular-nums shrink-0" style={{ color }}>
+                          {s.price}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+
+        {/* JM Monthly Packages */}
+        <Reveal>
+          <div className="mb-6">
+            <h3 className="text-2xl font-black text-white tracking-tight mb-1">JM Monthly Packages</h3>
+            <p className="text-[#6b6b6b] text-sm">All-inclusive monthly growth packages</p>
+          </div>
+        </Reveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+          {jmMonthlyPackages.map((pkg, i) => {
+            const colors = ["#60a5fa", "#f59e0b", "#a855f7"];
+            const c = colors[i];
+            return (
+              <Reveal key={pkg.name} delay={i * 0.07}>
+                <div
+                  className="rounded-2xl border p-5 relative overflow-hidden h-full"
+                  style={{
+                    borderColor: pkg.highlight ? `${c}40` : "rgba(255,255,255,0.06)",
+                    background: `${c}08`,
+                  }}
+                >
+                  {pkg.highlight && (
+                    <div className="absolute top-2.5 right-2.5 text-[9px] font-bold text-black px-2 py-0.5 rounded-full" style={{ background: c }}>
+                      Most Popular
+                    </div>
+                  )}
+                  <div className="text-[10px] uppercase tracking-wider font-semibold mb-2" style={{ color: c }}>
+                    {pkg.name}
+                  </div>
+                  <div className="text-2xl font-black text-white mb-4">
+                    {pkg.price}
+                    <span className="text-xs font-normal text-[#6b6b6b]">/{pkg.period}</span>
+                  </div>
+                  <div className="space-y-2">
+                    {pkg.features.map((f) => (
                       <div key={f} className="flex items-start gap-2 text-[11px] text-[#a1a1a1]">
                         <div className="w-1.5 h-1.5 rounded-full mt-0.5 shrink-0" style={{ background: c }} />
                         {f}
